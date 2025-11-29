@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alden Eyouth Maine</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 50px;
+        background-color: #ffe6f0;
+        height: 100vh;
+    }
+    button {
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 8px;
+        border: none;
+    }
+    #yesBtn { background-color: #ff69b4; color: white; }
+    #noBtn { background-color: #f44336; color: white; }
+    .gifContainer img {
+        max-width: 100%;
+        max-height: 300px;
+        display: none;
+        margin-top: 30px;
+   
+    }
+</style>
+</head>
+<body>
+
+<h1>MAHAL MO PA????</h1>
+<button id="yesBtn">Yes</button>
+<button id="noBtn">No</button>
+
+<div class="gifContainer">
+    <img id="yesGif" src="Alden.jpg" alt="Alden">
+    <img id="noGif" src="Wally.jpg" alt="Wally">
+</div>
+
+<audio id="yesAudio" src="Kung Tayo.mp3"></audio>
+<audio id="noAudio" src="Pahintulot.mp3"></audio>
+
+<script>
+const yesBtn = document.getElementById('yesBtn');
+const noBtn = document.getElementById('noBtn');
+const yesGif = document.getElementById('yesGif');
+const noGif = document.getElementById('noGif');
+const yesAudio = document.getElementById('yesAudio');
+const noAudio = document.getElementById('noAudio');
+
+// Optional: start audio at a specific timestamp
+const yesStartTime = 255.6; // seconds
+const noStartTime = 14.2;  // seconds
+
+yesBtn.addEventListener('click', () => {
+    // Show Yes GIF, hide No GIF
+    yesGif.style.display = 'block';
+    noGif.style.display = 'none';
+    
+    // Play Yes audio from timestamp
+    yesAudio.currentTime = yesStartTime;
+    yesAudio.play();
+    
+    // Stop No audio if playing
+    noAudio.pause();
+    noAudio.currentTime = 0;
+});
+
+noBtn.addEventListener('click', () => {
+    // Show No GIF, hide Yes GIF
+    noGif.style.display = 'block';
+    yesGif.style.display = 'none';
+    
+    // Play No audio from timestamp
+    noAudio.currentTime = noStartTime;
+    noAudio.play();
+    
+    // Stop Yes audio if playing
+    yesAudio.pause();
+    yesAudio.currentTime = 0;
+});
+</script>
+
+</body>
+</html>
